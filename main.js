@@ -1,3 +1,12 @@
+const express = require('express');
+const app = express();
+
+const PORT = 2000;
+
+app.listen(PORT, function () {
+  console.log(`App listening on port ${PORT}!`);
+});
+
 const { sendMessage } = require('./helpers/index.js');
 const config = require("./config/index.json");
 
