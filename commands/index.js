@@ -24,14 +24,13 @@ function handleCommand(client, message) {
 function runCommand(client, message, command) {
   switch (command) {
     case "ping": {
-      message.reply(sendMessage(`Pong!`));
+      message.reply(sendMessage(`Ping: ${client.ws.ping}ms`));
 
       break;
     }
 
     case "test": {
-      client.channels.fetch(config.CHANNEL_ID_RUN_JOB)
-      .then(channel=>channel.send('booyah!'))
+      message.reply(sendMessage(`Bot is running!`));
 
       break;
     }
