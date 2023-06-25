@@ -1,10 +1,11 @@
-## Super Duck
+## Super Duck (Developing)
 Feature:
 - Check ping
 - Check the bot works
 - Automatically reminding it to rain every morning (At 7:30 am)
 - Automatically check the schedule for tomorrow's power cut in Hanoi (Automatically sent at 8pm the previous day)
-
+- ...
+  
 ## Requirements
 - Node 19.1.0 
 - Git
