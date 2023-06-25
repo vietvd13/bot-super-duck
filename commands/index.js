@@ -6,7 +6,7 @@ function handleCommand(client, message) {
 
   content = content.trim();
 
-  console.log("[Super Duck] - Content: ", content);
+  console.log("Content: ", content);
 
   const re = /[^$]*$/;
 
@@ -24,7 +24,7 @@ function handleCommand(client, message) {
 function runCommand(client, message, command) {
   switch (command) {
     case "ping": {
-      message.reply(sendMessage(`[Super Duck] - Pong!`));
+      message.reply(sendMessage(`Pong!`));
 
       break;
     }
@@ -37,7 +37,7 @@ function runCommand(client, message, command) {
     }
 
     default: {
-      message.reply(sendMessage(`[Super Duck] - Lệnh ${command} không tồn tại!`));
+      message.reply(sendMessage(`Lệnh ${command} không tồn tại!`));
 
       break;
     }
