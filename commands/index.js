@@ -1,45 +1,32 @@
-const { sendMessage } = require('../helpers/index.js');
-const config = require("../config/index.json");
+const { detachCommand } = require('../helpers/index.js');
 
 function handleCommand(client, message) {
   let { content } = message;
 
-  content = content.trim();
+  _detachCommand = detachCommand(content);
 
-  console.log("Content: ", content);
+  if (_detachCommand.status) {
+    const { command, args } = _detachCommand;
 
-  const re = /[^$]*$/;
-
-  let command = content.match(re)[0];
-
-  command = command.toLowerCase();
-
-  if (command) {
-    runCommand(client, message, command);
-  } else {
-    console.log(client, message);
+    runCommand(client, message, command, args);
   }
 };
 
-function runCommand(client, message, command) {
-  switch (command) {
-    case "ping": {
-      message.reply(sendMessage(`Ping: ${client.ws.ping}ms`));
+function runCommand(client, message, command, args) {
+  const { handleCommandAsk } = require('./modules/ask.js');
+  const { handleCommandPing } = require('./modules/ping.js');
 
-      break;
-    }
+  const { handleCommandOther } = require('./modules/other.js');
 
-    case "test": {
-      message.reply(sendMessage(`Bot is running!`));
+  const direct = {
+    "ask": handleCommandAsk,
+    "ping": handleCommandPing,
+  };
 
-      break;
-    }
-
-    default: {
-      message.reply(sendMessage(`Lệnh ${command} không tồn tại!`));
-
-      break;
-    }
+  if (direct[command]) {
+    direct[command](client, message, command, args);
+  } else {
+    handleCommandOther(client, message, command, args);
   }
 }
 

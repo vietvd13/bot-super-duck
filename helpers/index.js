@@ -1,3 +1,50 @@
+function detachCommand(message) {
+  const config = require("../config/index.json");
+  const prefix = config.COMMAND_PREFIX;
+
+  if (!message) {
+    return {
+      status: false,
+      message: "Bạn chưa nhập lệnh"
+    }
+  };
+
+  message = message.trim();
+
+  const args = message.slice(prefix.length).trim().split(/ +/g);
+
+  if (!Array.isArray(args)) {
+    return {
+      status: false,
+      message: "Bạn chưa nhập lệnh"
+    }
+  }
+
+  if (Array.isArray(args) && args.length === 0) {
+    return {
+      status: false,
+      message: "Bạn chưa nhập lệnh"
+    }
+  }
+
+  if (args.join("") == "") {
+    return {
+      status: false,
+      message: "Bạn chưa nhập lệnh"
+    }
+  }
+
+  let command = args.shift();
+  command = command.trim();
+  command = command.toLowerCase();
+
+  return {
+    status: true,
+    command,
+    args
+  }
+}
+
 function sendMessage(message) {
   return (`\`\`\`${message}\`\`\``);
 }
@@ -18,6 +65,7 @@ function format2Digits(number) {
 }
 
 module.exports = {
+  detachCommand,
   sendMessage,
   getDateTomorrow
 }
