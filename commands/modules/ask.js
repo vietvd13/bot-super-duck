@@ -6,7 +6,7 @@ function handleCommandAsk(client, message, command, args) {
   } else {
     const question = args.join(" ");
 
-    message.reply(sendMessage(`Câu hỏi: ${question}`));
+    message.reply(sendMessage(`Tính năng đang trong giai đoạn phát triển!\n\nCâu hỏi: ${question}`));
   }
 }
 
