@@ -1,13 +1,137 @@
 {
   "DISCORD_APPLICATION_ID": "1122166044308553738",
   "DISCORD_PUBLIC_KEY": "18f3d778a1d41d5408a2d86445b99e5aeb4f7df5a8fa076ee9f522c0db1ca1b6",
-  "DISCORD_TOKEN": "MTEyMjE2NjA0NDMwODU1MzczOA.GTByuH.sJlE7UG1G8EWYb29qkhnY0edKkGvjpsGO8Gk-s",
-
+  "DISCORD_TOKEN": "",
+  
   "COMMAND_PREFIX": "$",
 
   "CHANNEL_ID_RUN_JOB": "1109319685356388382",
 
   "OPENWEATHERMAP_URL_API": "https://api.openweathermap.org/data/2.5/",
   "OPENWEATHERMAP_API_KEY": "df24978067427fe992301ab2fe332253",
-  "OPENWEATHERMAP_LOCATION": "Hà Nội"
+  "OPENWEATHERMAP_LOCATION": "Hà Nội",
+
+  "ENV_URL_API": "https://evnhanoi.vn/api/TraCuu/LichCatDien",
+  "ENV_LIST_LOCATION": [
+    {
+      "code": "PD0100",
+      "name": "Quận Hoàn Kiếm"
+    },
+    {
+      "code": "PD0200",
+      "name": "Quận Hai Bà Trưng"
+    },
+    {
+      "code": "PD0300",
+      "name": "Quận Ba Đình"
+    },
+    {
+      "code": "PD0400",
+      "name": "Quận Đống Đa"
+    },
+    {
+      "code": "PD0500",
+      "name": "Quận Nam Từ Liêm"
+    },
+    {
+      "code": "PD0600",
+      "name": "Huyện Thanh Trì"
+    },
+    {
+      "code": "PD0700",
+      "name": "Huyện Gia Lâm"
+    },
+    {
+      "code": "PD0800",
+      "name": "Huyện Đông Anh"
+    },
+    {
+      "code": "PD0900",
+      "name": "Huyện Sóc Sơn"
+    },
+    {
+      "code": "PD1000",
+      "name": "Quận Tây Hồ"
+    },
+    {
+      "code": "PD1100",
+      "name": "Quận Thanh Xuân"
+    },
+    {
+      "code": "PD1200",
+      "name": "Quận Cầu Giấy"
+    },
+    {
+      "code": "PD1300",
+      "name": "Quận Hoàng Mai"
+    },
+    {
+      "code": "PD1400",
+      "name": "Quận Long Biên"
+    },
+    {
+      "code": "PD1500",
+      "name": "Huyện Mê Linh"
+    },
+    {
+      "code": "PD1600",
+      "name": "Quận Hà Đông"
+    },
+    {
+      "code": "PD1700",
+      "name": "Thị Xã Sơn Tây"
+    },
+    {
+      "code": "PD1800",
+      "name": "Huyện Chương Mỹ"
+    },
+    {
+      "code": "PD1900",
+      "name": "Huyện Thạch Thất"
+    },
+    {
+      "code": "PD2000",
+      "name": "Huyện Thường Tín"
+    },
+    {
+      "code": "PD2100",
+      "name": "Huyện Ba Vì"
+    },
+    {
+      "code": "PD2200",
+      "name": "Huyện Đan Phượng"
+    },
+    {
+      "code": "PD2300",
+      "name": "Huyện Hoài Đức"
+    },
+    {
+      "code": "PD2400",
+      "name": "Huyện Mỹ Đức"
+    },
+    {
+      "code": "PD2500",
+      "name": "Huyện Phú Xuyên"
+    },
+    {
+      "code": "PD2600",
+      "name": "Huyện Phúc Thọ"
+    },
+    {
+      "code": "PD2700",
+      "name": "Huyện Quốc Oai"
+    },
+    {
+      "code": "PD2800",
+      "name": "Huyện Thanh Oai"
+    },
+    {
+      "code": "PD2900",
+      "name": "Huyện Ứng Hòa"
+    },
+    {
+      "code": "PD3000",
+      "name": "Quận Bắc Từ Liêm"
+    }
+  ]
 }

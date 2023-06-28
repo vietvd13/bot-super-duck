@@ -14,12 +14,14 @@ function handleCommand(client, message) {
 
 function runCommand(client, message, command, args) {
   const { handleCommandAsk } = require('./modules/ask.js');
+  const { handleCommandWeather } = require('./modules/weather.js');
   const { handleCommandPing } = require('./modules/ping.js');
 
   const { handleCommandOther } = require('./modules/other.js');
 
   const direct = {
     "ask": handleCommandAsk,
+    "weather": handleCommandWeather,
     "ping": handleCommandPing,
   };
 

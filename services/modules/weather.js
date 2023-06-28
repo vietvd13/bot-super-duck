@@ -1,13 +1,12 @@
 const axios = require('axios');
 const config = require("../../config/index.json");
 
-const getWeather = async () => {
+const getWeather = async (LOCATION = config.OPENWEATHERMAP_LOCATION, LANG = "en") => {
   try {
       const BASE_URL = config.OPENWEATHERMAP_URL_API;
       const API_KEY = config.OPENWEATHERMAP_API_KEY;
-      const LOCATION = config.OPENWEATHERMAP_LOCATION;
 
-      const URL = `${BASE_URL}weather?q=${LOCATION}&units=metric&APPID=${API_KEY}`;
+      const URL = `${BASE_URL}weather?q=${LOCATION}&units=metric&APPID=${API_KEY}&lang=${LANG}`;
 
       if (BASE_URL && API_KEY && LOCATION) {
           const { data } = await axios.get(URL);
