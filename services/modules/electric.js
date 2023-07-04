@@ -2,11 +2,10 @@ const axios = require('axios');
 const config = require("../../config/index.json");
 const { getDateTomorrow } = require('../../helpers/index.js');
 
-const getElectricCutSchedule = async () => {
+const getElectricCutSchedule = async (listLocation = config.ENV_LIST_LOCATION) => {
     try {
         const URL = config.ENV_URL_API;
         const dateTomorrow = getDateTomorrow();
-        const listLocation = config.ENV_LIST_LOCATION;
 
         const len = listLocation.length;
         let idx = 0;

@@ -15,6 +15,7 @@ function handleCommand(client, message) {
 function runCommand(client, message, command, args) {
   const { handleCommandAsk } = require('./modules/ask.js');
   const { handleCommandWeather } = require('./modules/weather.js');
+  const { handleCommandElectric } = require('./modules/electric.js');
   const { handleCommandPing } = require('./modules/ping.js');
   const { handleCommandDocs } = require('./modules/docs.js');
 
@@ -23,6 +24,7 @@ function runCommand(client, message, command, args) {
   const direct = {
     "ask": handleCommandAsk,
     "weather": handleCommandWeather,
+    "electric": handleCommandElectric,
     "ping": handleCommandPing,
     "docs": handleCommandDocs,
   };
