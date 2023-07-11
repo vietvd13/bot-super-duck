@@ -37,43 +37,43 @@ const jobs = (client) => {
     }
   }, configTimezone);
 
-  cron.schedule('0 20 * * *', async() => {
-    try {
-      console.log("[Super Duck] - Run job get electric cut schedule");
+  // cron.schedule('0 20 * * *', async() => {
+  //   try {
+  //     console.log("[Super Duck] - Run job get electric cut schedule");
 
-      const data = await getElectricCutSchedule();
+  //     const data = await getElectricCutSchedule();
 
-      if (data) {
-        const len = data.length;
-        let idx = 0;
+  //     if (data) {
+  //       const len = data.length;
+  //       let idx = 0;
 
-        while (idx < len) {
-          const item = data[idx];
+  //       while (idx < len) {
+  //         const item = data[idx];
 
-          if (item !== null && (item.data).length > 0) {
-            sendMessageToChannel(client, `***Lịch cúp điện ngày mai: ${item.name} - (${item.data.length} khu vực)***`);
+  //         if (item !== null && (item.data).length > 0) {
+  //           sendMessageToChannel(client, `***Lịch cúp điện ngày mai: ${item.name} - (${item.data.length} khu vực)***`);
             
-            const lenData = (item.data).length;
-            let idxData = 0;
+  //           const lenData = (item.data).length;
+  //           let idxData = 0;
 
-            while (idxData < lenData) {
-              sendMessageToChannel(client, sendMessage(`Đơn vị: ${item.data[idxData].tenDonVi}\nThời gian: ${item.data[idxData].khoangThoiGian} | ${item.data[idxData].ngayTHien}\nKhu vực: ${item.data[idxData].khuVuc}\nNội dung: ${item.data[idxData].noidung}\nHình thức đăng ký: ${item.data[idxData].hinhThucDangKy}\nTrạng thái: ${item.data[idxData].trangthai}`));
+  //           while (idxData < lenData) {
+  //             sendMessageToChannel(client, sendMessage(`Đơn vị: ${item.data[idxData].tenDonVi}\nThời gian: ${item.data[idxData].khoangThoiGian} | ${item.data[idxData].ngayTHien}\nKhu vực: ${item.data[idxData].khuVuc}\nNội dung: ${item.data[idxData].noidung}\nHình thức đăng ký: ${item.data[idxData].hinhThucDangKy}\nTrạng thái: ${item.data[idxData].trangthai}`));
 
-              idxData++;
-            }
-          } else {
-            console.log(`[Super Duck] - ${item.name} - No electric cut schedule`);
-          }
+  //             idxData++;
+  //           }
+  //         } else {
+  //           console.log(`[Super Duck] - ${item.name} - No electric cut schedule`);
+  //         }
 
-          idx++;
-        }
-      } else {
-        console.log("[Super Duck] - Error when get electric cut schedule");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }, configTimezone);
+  //         idx++;
+  //       }
+  //     } else {
+  //       console.log("[Super Duck] - Error when get electric cut schedule");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, configTimezone);
 }
 
 module.exports = {
