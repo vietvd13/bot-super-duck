@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 
@@ -44,6 +46,8 @@ client.on(Events.ClientReady, () => {
 
 client.on(Events.MessageCreate, async(message) => {
   try {
+    await message.channel.sendTyping();
+
     if (!message.content.startsWith(config.COMMAND_PREFIX) || message.author.bot) {
       return;
     }
@@ -53,7 +57,7 @@ client.on(Events.MessageCreate, async(message) => {
     handleCommand(client, message);
   } catch (error) {
     console.log(error);
-    message.reply(sendMessage(`[Super Duck] - Lỗi rồi bạn ơi!`))
+    message.reply(sendMessage(`[Super Duck] - Lỗi rồi bạn ơi!`));
   }
 });
 

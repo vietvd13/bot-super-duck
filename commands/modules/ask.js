@@ -1,12 +1,26 @@
+const { handleAskChatGPT } = require('../../services/index.js');
 const { sendMessage } = require('../../helpers/index.js');
 
-function handleCommandAsk(client, message, command, args) {
-  if (args.length === 0) {
-    message.reply(sendMessage("Bạn chưa nhập câu hỏi!"));
-  } else {
-    const question = args.join(" ");
+async function handleCommandAsk(client, message, command, args) {
+  try {
+    if (args.length === 0) {
+      message.reply(sendMessage("Bạn chưa nhập câu hỏi!"));
+    } else {
+      const question = args.join(" ");
+  
+      const data = await handleAskChatGPT(question);
 
-    message.reply(sendMessage(`Tính năng đang trong giai đoạn phát triển!\n\nCâu hỏi: ${question}`));
+      if (data) {
+        message.reply(data);
+      } else {
+        message.reply(sendMessage("Đã có lỗi xảy ra!"));
+      }
+    }
+  } catch (error) {
+    console.log("[ERROR] HANDLE COMMAND ASK");
+    console.log(error);
+
+    message.reply(sendMessage("Đã có lỗi xảy ra!"));
   }
 }
 
