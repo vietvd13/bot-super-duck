@@ -22,6 +22,8 @@ async function handleAskChatGPT(question = "") {
     const { data } = await axios.post("https://api.openai.vn/v1/chat/completions", BODY, { headers: HEADER });
 
     if (data) {
+      console.log(data);
+
       const { choices } = data;
 
       if (Array.isArray(choices)) {
@@ -32,19 +34,38 @@ async function handleAskChatGPT(question = "") {
             const { content } = message;
 
             if (content) {
-              return content;
+              return {
+                status: true, 
+                data: content
+              };
             }
           }
         }
       }
     }
 
-    return null;
+    return {
+      status: false,
+      data: error
+    };
   } catch (error) {
     console.log("[ERROR] CALL API GET ELECTRIC");
     console.error(error);
 
-    return null;
+    const status = error.response.status;
+    const data = error.response.data.error;
+
+    const res = {
+      status,
+      data: data || {
+        message: "Đã có lỗi xảy ra!"
+      }
+    }
+
+    return {
+      status: false,
+      data: res
+    };
   }
 }
 

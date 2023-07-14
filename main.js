@@ -46,8 +46,6 @@ client.on(Events.ClientReady, () => {
 
 client.on(Events.MessageCreate, async(message) => {
   try {
-    await message.channel.sendTyping();
-
     if (!message.content.startsWith(config.COMMAND_PREFIX) || message.author.bot) {
       return;
     }

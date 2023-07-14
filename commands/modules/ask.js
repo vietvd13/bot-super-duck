@@ -8,12 +8,18 @@ async function handleCommandAsk(client, message, command, args) {
     } else {
       const question = args.join(" ");
   
-      const data = await handleAskChatGPT(question);
+      const { status, data } = await handleAskChatGPT(question);
 
-      if (data) {
+      if (status) {
         message.reply(data);
       } else {
-        message.reply(sendMessage("Đã có lỗi xảy ra!"));
+        const res = data;
+
+        console.log("RES: ", res);
+
+        const messageReply = `Lỗi ${res.status} - ${res.data.message}`;
+
+        message.reply(sendMessage(messageReply || "Đã có lỗi xảy ra!"));
       }
     }
   } catch (error) {
